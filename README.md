@@ -25,8 +25,11 @@ An Eclipse (+ EV3 leJOS plugin) project written in Java (for [EV3 leJOS](http://
 
 ## set-up your EV3 - in detail
 if you have eJRE8 on your leJOS, you can just copy the MainClass.jar on your robot. If not, you will have to compile it from the source code, to get a proper eJRE7 jar file.
+
 I've used Eclipse + leJOS plugin [tutorial here](https://sourceforge.net/p/lejos/wiki/Installing%20the%20Eclipse%20plugin/)
+
 On the EV3, you will probably have to enable PAN --> USB Client and set a custom IP for it (if it fails on automatic) to be able to run a .jar on the EV3 directly from ecliplse.
+
 If you have Windows 10, you may need to sort out your drivers... Instructions:
 If you are one of the people that found this because your device is showing up as a COM port instead of RNDIS, you may be able to get away using the RNDIS 5.1 driver. Find your device under Ports (COM & LTP) in Device Manager. Right-click it and select Update Driver Software..., then Browse my computer for driver software and then Let me pick from a list of device drivers on my computer and finally choose Remote NDIS Compatible Device. This should install the Microsoft RNDIS 5.1 driver (shows "Acer" as the manufacturer). If this works great. If it causes Network and Settings and other network related things to lock up, then you need the RNDIS 6.0 driver instead.
 [Acer RNDIS 5.1 driver download link](http://catalog.update.microsoft.com/v7/site/ScopedViewRedirect.aspx?updateid=37e35bd4-d788-4b83-9416-f78e439f90a2)
@@ -42,29 +45,28 @@ you can control the robot using the arrow keys on the keyboard and pressing spac
 **if something does not work, import the project into the IDE and observe the logs! They're meant for debugging!**
 
 - My Android phone doesn't have Lollipop or newer
-  Set the minSdkVersion variable in build.gradle to 16, but be aware that you'll only be able to use RTSP then.
+  * Set the minSdkVersion variable in build.gradle to 16, but be aware that you'll only be able to use RTSP then.
 
 - RTSP server shows a lot of errors
-  **try setting the forceMediaCodec variable to false**. Some phones do not support MediaCodec and this will make the app use MediaRecorder instead.
+  * **try setting the forceMediaCodec variable to false**. Some phones do not support MediaCodec and this will make the app use MediaRecorder instead.
 
 - I cannot see video in the PC app.
-  possibilites:
-..* look at bullet-line above
-..* **try different values in VideoQuality** in *RTSPservice.java*
-..* try using the real VLC instead of the PC client application and use following URL pattern: "rtsp://" + IP + ":" + RTSP_PORT + "?videoapi=mc&camera=back&h264=1000-15-640-480" to connect to a network stream. IP is usually 192.168.43.1 , if you're using a WiFi hotspot and the port is predefined as 5678.
-..* make sure the phone and PC are accessible through the network. You can make sure by pinging each other's IP address.
-..* try using TransferMode.TCP (preferably) or TransferMode.UDP (it works, but EV3 needs to be "connected" to the phone as well) instead of TransferMode.RTSP as a temporary workaround in both the Android app and in the PC application!
+  * look at bullet-line above
+  * **try different values in VideoQuality** in *RTSPservice.java*
+  * try using the real VLC instead of the PC client application and use following URL pattern: "rtsp://" + IP + ":" + RTSP_PORT + "?videoapi=mc&camera=back&h264=1000-15-640-480" to connect to a network stream. IP is usually 192.168.43.1 , if you're using a WiFi hotspot and the port is predefined as 5678.
+  * make sure the phone and PC are accessible through the network. You can make sure by pinging each other's IP address.
+  * try using TransferMode.TCP (preferably) or TransferMode.UDP (it works, but EV3 needs to be "connected" to the phone as well) instead of TransferMode.RTSP as a temporary workaround in both the Android app and in the PC application!
 
 - I cannot control the EV3 robot
-..* (Bluetooth problem) make sure the EV3 and your phone are paired 
-..* (Bluetooth problem) try using a hardcoded BT device address - pass a string containing the address, to the BTManager() constructor in PCcommands.java, for example ```java btManager = new BTManager("00:16:53:3F:61:F0") ``` where the string is your EV3's BT address
-..* (Network problem) make sure the phone and PC are accessible through the network. You can make sure by pinging each other's IP address.
+  * (Bluetooth problem) make sure the EV3 and your phone are paired 
+  * (Bluetooth problem) try using a hardcoded BT device address - pass a string containing the address, to the BTManager() constructor in PCcommands.java, for example ```java btManager = new BTManager("00:16:53:3F:61:F0") ``` where the string is your EV3's BT address
+  * (Network problem) make sure the phone and PC are accessible through the network. You can make sure by pinging each other's IP address.
 
 - video is rotated/flipped
-  Change the *--transform-type=270* string in the RTSPway method (PC application) to a different value. It depends on your phone's rotation on the robot.
+  * Change the *--transform-type=270* string in the RTSPway method (PC application) to a different value. It depends on your phone's rotation on the robot.
 
 - Something else
-  you'll have to figure it out through the debug logs, unfortunately. But it's probably a platform (various Android versions) specific issue or a general network/bluetooth connection problem.
+  * you'll have to figure it out through the debug logs, unfortunately. But it's probably a platform (various Android versions) specific issue or a general network/bluetooth connection problem.
 
 
 The project is licensed under GNU / GPL 3 .
