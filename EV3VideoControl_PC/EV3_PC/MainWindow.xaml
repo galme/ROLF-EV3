@@ -1,0 +1,23 @@
+﻿<Window x:Class="EV3_ActiveX_PC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EV3_ActiveX_PC"
+        mc:Ignorable="d"
+        Title="EV3 PC Client" Height="640" Width="480">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        
+        <WindowsFormsHost Height="1" Width="1" Name="FormsHost" HorizontalAlignment="Left" VerticalAlignment="Top"></WindowsFormsHost>
+        <Image Name="ImageControl">
+            <Image.LayoutTransform>
+                <RotateTransform Angle="270"></RotateTransform>
+            </Image.LayoutTransform>
+        </Image>
+    </Grid>
+</Window>
