@@ -12,7 +12,7 @@ import android.view.WindowManager;
  * Libstreaming library (https://github.com/fyhertz/libstreaming @fyhertz) is used in this project.
  *
  *
- * Orignal GitHub source:
+ * Orignal GitHub source: https://github.com/galme/ROLF-EV3
  */
 
 public class MainActivity extends Activity {
