@@ -5,6 +5,11 @@
 This project is a collection of 3 sub-projects, for 3 platforms - PC, Android and leJOS EV3.
 Its' purpose is to be able to command an EV3 robot with your PC keyboard and show a live-feed video stream (h264 over RTSP&RTP or MJPEG over TCP/UDP sockets) from a phone mounted on the Mindstorms EV3 robot - to an extent, a real-life driving PC game.
 
+## ROLF-EV3 showcase video
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=G-rS_D2sXGU
+" target="_blank"><img src="http://img.youtube.com/vi/G-rS_D2sXGU/0.jpg" 
+alt="ROLF-EV3 showcase video" width="480" height="360" border="10" /></a>
+
 ## PC - EV3VideoControl_PC
 A Visual Studio (WPF - C#) project, using libVLC.NET to play the RTSP stream, or alternatively, receive MJPEG "video" from UDP or TCP socket.
 
